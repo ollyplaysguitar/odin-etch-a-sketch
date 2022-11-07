@@ -1,0 +1,12 @@
+.container {
+}
+
+.grid {
+  display: grid;
+  grid-auto-columns: 50px;
+  margin: 0 auto;
+}
+
+.grid-item {
+  background-color: lawngreen;
+}
