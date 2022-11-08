@@ -10,8 +10,32 @@
   </head>
   <body>
     <div class="container">
-      <div class="controls"></div>
+      <div class="controls">
+        <div>
+          <button class="btnShowModal">16x16</button>
+        </div>
+        <div>
+          <input type="range" class="red" name="red" min="0" max="255" value="0" />
+          <label for="red">Red</label>
+        </div>
+        <div>
+          <input type="range" class="green" name="green" min="0" max="255" value="0" />
+          <label for="green">Green</label>
+        </div>
+        <div>
+          <input type="range" class="blue" name="blue" min="0" max="255" value="0" />
+          <label for="blue">Blue</label>
+        </div>
+      </div>
       <div class="grid"></div>
+    </div>
+    <div class="modal-container hidden">
+      <h2>Select Grid Resolution</h2>
+      <div class="modal-buttons">
+        <button class="btnSetGrid" value="16">16x16</button>
+        <button class="btnSetGrid" value="32">32x32</button>
+        <button class="btnSetGrid" value="64">64x64</button>
+      </div>
     </div>
   </body>
 </html>

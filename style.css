@@ -1,6 +1,18 @@
 .container {
 }
 
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.controls > div {
+  display: flex;
+  height: 50px;
+  align-items: center;
+}
+
 .grid {
   display: grid;
   grid-auto-columns: 50px;
@@ -9,4 +21,27 @@
 
 .grid-item {
   background-color: lawngreen;
+}
+
+.modal-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 50%);
+}
+
+.modal-buttons {
+  background-color: rgb(192, 202, 46);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.hidden {
+  display: none;
 }
