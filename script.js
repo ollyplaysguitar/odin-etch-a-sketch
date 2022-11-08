@@ -8,8 +8,10 @@ const colorBlue = document.querySelector(".blue");
 const btnShowModal = document.querySelector(".btnShowModal");
 const modal = document.querySelector(".modal-container");
 const setGridButtons = document.querySelectorAll(".btnSetGrid");
+const btnUndo = document.querySelector(".undo");
 
 const rgb = [0, 0, 0];
+const history = [];
 
 const gridItem = document.createElement("div");
 gridItem.classList.add("grid-item");
@@ -45,6 +47,7 @@ const drawGrid = function (num) {
   gridItem.style.height = `${gridSize}px`;
 
   for (let i = 0; i < num * num; i++) {
+    gridItem.dataset.id = i;
     grid.appendChild(gridItem.cloneNode());
   }
 };
@@ -56,7 +59,20 @@ const hoverPaint = function (e) {
 };
 
 const paint = function (e) {
+  if (!e.target.dataset.id) return;
+  history.push([e.target.dataset.id, e.target.style.backgroundColor || "rgb(124,252,0)"]);
+  if (history.length > 30) {
+    history.shift();
+  }
   e.target.style.backgroundColor = getColor();
+};
+
+const undo = function (e) {
+  if (history.length <= 0) return;
+  let step = history.pop();
+  console.log(step);
+  let element = document.querySelector(`[data-id="${step[0]}"]`);
+  element.style.backgroundColor = step[1];
 };
 
 document.addEventListener("mousedown", (e) => (mouseStatus = 1));
@@ -67,6 +83,7 @@ colorRed.addEventListener("change", (e) => (rgb[0] = e.target.value));
 colorGreen.addEventListener("change", (e) => (rgb[1] = e.target.value));
 colorBlue.addEventListener("change", (e) => (rgb[2] = e.target.value));
 btnShowModal.addEventListener("click", (e) => modal.classList.remove("hidden"));
+btnUndo.addEventListener("click", undo);
 
 setGridButtons.forEach(function (btn) {
   btn.addEventListener("click", function (e) {
