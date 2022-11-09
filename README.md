@@ -2,14 +2,14 @@
 
 Odin etch a sketch project - Click or click and drag to draw.
 
-####Features:
+#### Features:
 
 - Drawable area fits screen
 - Select resolution
 - Random colours but with RGB limits
 - Undo feature
 
-######To Do:
+###### To Do:
 
 - Set drawable area to take into account the controls at the top
 - Sometimes cursor tries to drag and drop - set non draggable?
